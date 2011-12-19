@@ -21,14 +21,15 @@ To install gems:
 
 ==== Hosted on Apache/Passenger
 
-* Run bundler
+Run bundler:
     
   $ bundle install
 
-* Add the following config to your httpd-vhosts.conf file
+Add the following config to your httpd-vhosts.conf file:
 
   $ sudo vim /etc/apache2/extra/httpd-vhosts.conf 	
 
+++
 	<VirtualHost *:80>
 	    ServerName dev.mongodb.com
 	    DocumentRoot /path/to/your/projects/mongo-web/public
@@ -41,25 +42,26 @@ To install gems:
 	      Allow from all
 	    </Directory>
 	</VirtualHost>
+--
 	
-* Add the following line to your hosts file
+Add the following line to your hosts file
 
   $ sudo vim /etc/hosts
   127.0.0.1   dev.mongodb.com
 	
-* Go to http://dev.mongodb.com/index.html	
+Go to: http://dev.mongodb.com/index.html	
 
 ==== From command-line as Rack App
 
-* Run bundler
+Run bundler:
 
   $ bundle install
 
-* Run Rack
+Run Rack:
 
   $ rackup -p 4567
 
-* Go to http://localhost:4567/index.html
+Go to: http://localhost:4567/index.html
 
 === Features
 
