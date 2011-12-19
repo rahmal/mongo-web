@@ -14,8 +14,8 @@ As NoSQL DB's Mongo and Couch have a lot of similarities... but still have some 
 
 To install gems:
 
-    $ sudo gem install bundler
-	$ bundle install
+  $ sudo gem install bundler
+  $ bundle install
 
 === Installation
 
@@ -26,7 +26,8 @@ To install gems:
 
   - Add the following config to your httpd-vhosts.conf file
 
-    $ sudo vim /etc/apache2/extra/httpd-vhosts.conf 	
+  $ sudo vim /etc/apache2/extra/httpd-vhosts.conf 	
+
 	<VirtualHost *:80>
 	    ServerName dev.mongodb.com
 	    DocumentRoot /path/to/your/projects/mongo-web/public
@@ -42,18 +43,19 @@ To install gems:
 	
   - Add the following line to your hosts file
 
-	$ sudo vim /etc/hosts
-	127.0.0.1   dev.mongodb.com
+  $ sudo vim /etc/hosts
+  127.0.0.1   dev.mongodb.com
 	
   - Go to http://dev.mongodb.com/index.html	
 
 * From command-line as Rack App
   - Run bundler
-    $ bundle install
+
+  $ bundle install
 
   - Run Rack
 
-    $ rackup -p 4567
+  $ rackup -p 4567
 
   - Go to http://localhost:4567/index.html
 
@@ -61,21 +63,21 @@ To install gems:
 
 Most of the features in Futon are not working here yet, however most of the database management activities are functional.  If you just need, a tool for simple crud operations and data manipulation, or a development tool to give you a window into your data, then this. 
 
-	* Standard database management
-	  - standard CRUD operations for documents
-	  - creation/deletion/modification of documents
-	  - creation/deletion/modification of databases
+* Standard database management
+  - standard CRUD operations for documents
+  - creation/deletion/modification of documents
+  - creation/deletion/modification of databases
 
-	* Features not yet completed
-	  - DB configuration
-	  - Map/Reduce
-	  - Replication
+* Features not yet completed
+  - DB configuration
+  - Map/Reduce
+  - Replication
 	 
 === Views
 
 Mongo Web Admin replicates CouchDB's views functionality with some notable differences:
 
-    * views are stored in design documents in a special collection called "__design"
+* views are stored in design documents in a special collection called "__design"
 
 = Issues & Compatibility
 
@@ -83,16 +85,16 @@ Mongo Web Admin replicates CouchDB's views functionality with some notable diffe
 
 CouchDB does not have "collections", all the documents are stored directly into "databases". Mongo Web Admin sees mongo's collections as databases with the following conventions :
 
-    * mongo web's db = "db_name/collection_name"
-    * mongo web's db list does not include mongo's system collections nor the special "__design" collections
+* mongo web's db = "db_name/collection_name"
+* mongo web's db list does not include mongo's system collections nor the special "__design" collections
 
 === Document IDs
 
 Mongo's _id are typed... and it make it difficult use CouchDB's REST interface as is with Mongo. The following conventions are used to try to guess the correct _id type from the string provided in the url.
 
-    * if _id is made of numbers, tries to cast _id as a FixNum and falls back to a String if no result is found
-    * if _id is a valid ObjectId tries to cast _id as a Mongo::ObjectID and falls back to a String if no result is found
-    * else _id is considered as a String
+* if _id is made of numbers, tries to cast _id as a FixNum and falls back to a String if no result is found
+* if _id is a valid ObjectId tries to cast _id as a Mongo::ObjectID and falls back to a String if no result is found
+* else _id is considered as a String
 
 This method is not 100% reliable, but I guess it should cover the most common situations
 
