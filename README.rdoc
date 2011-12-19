@@ -1,6 +1,6 @@
 === Introduction
 
-Mongo Web Admin is a small Sinatra app that partially replicates CouchDB's Web-based frontend caled Futon. Futon is a simple clean GUI to CouchDB's REST interface. This app is a modified version of Futon, making CouchDB's web interface compatible with MongoDB.
+Mongo Web Admin is a small Sinatra app that partially replicates Futon, CouchDB's Web-based frontend. Futon is a simple clean GUI to CouchDB's REST interface. This app is a modified version of Futon, making CouchDB's web interface compatible with MongoDB.
 
 Futon's code is included, mostly as-is, and has only been modified where necessary. This project is an experiment to bring a fully featured web based frontend to MongoDB.
 
@@ -21,9 +21,11 @@ To install gems:
 
 * Hosted on Apache/Passenger
   - Run bundler
-    $ bundle install
+    
+	$ bundle install
 
   - Add the following config to your httpd-vhosts.conf file
+
     $ sudo vim /etc/apache2/extra/httpd-vhosts.conf 	
 	<VirtualHost *:80>
 	    ServerName dev.mongodb.com
@@ -39,6 +41,7 @@ To install gems:
 	</VirtualHost>
 	
   - Add the following line to your hosts file
+
 	$ sudo vim /etc/hosts
 	127.0.0.1   dev.mongodb.com
 	
@@ -49,6 +52,7 @@ To install gems:
     $ bundle install
 
   - Run Rack
+
     $ rackup -p 4567
 
   - Go to http://localhost:4567/index.html
